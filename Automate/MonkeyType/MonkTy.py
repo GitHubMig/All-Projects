@@ -1,5 +1,5 @@
 #Author: @MiggyYTOfficial ("Check my YouTube out ;)")
-Tutorial on how to use this script: https://www.youtube.com/watch?v=pOebogwXE9Y
+#Tutorial on how to use this script: https://www.youtube.com/watch?v=pOebogwXE9Y
 
 import pyautogui
 import pytesseract
