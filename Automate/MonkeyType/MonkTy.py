@@ -1,0 +1,55 @@
+#Author: @MiggyYTOfficial ("Check my YouTube out ;)")
+Tutorial on how to use this script: https://www.youtube.com/watch?v=pOebogwXE9Y
+
+import pyautogui
+import pytesseract
+import cv2
+import time
+
+time.sleep(5)
+
+try:
+    while True:
+        
+        #STEP 1 (GET SCREENSHOT)
+        go = pyautogui.screenshot(region=(141,436,1600,200))
+        go.save("hi.png")
+
+        #STEP 2(EXTRACT TEXT)
+
+        img = cv2.imread("hi.png")
+        pytesseract.pytesseract.tesseract_cmd = "C:\\Users\\Miguel Estrada\\AppData\\Local\\Programs\\Tesseract-OCR\\tesseract.exe"
+        word = pytesseract.image_to_string(img)
+        
+        print(word)
+        print("---")
+        
+        # Convert parapgraph to a single line
+
+        list_word = list(word.split(" "))
+        print("List form:")
+        print(list_word)
+        
+        new = [y.replace('\n', ' ') for y in list_word]
+
+        final_word = " ".join(new)
+        print("  ")
+        print("Text Extracted Complete: ")
+        print(final_word)
+
+        #STEP 3 (TYPE TEXT)
+        Type_Speed = 0.06
+
+        pyautogui.write(str(final_word), interval=Type_Speed)
+        
+        ###Start New###
+        time.sleep(2)
+        pyautogui.scroll(300)
+        
+        pyautogui.moveTo(320, 187)
+
+        pyautogui.click()
+        time.sleep(0.5)
+        
+except KeyboardInterrupt:
+    print('\n')
